@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import cc.linktime.datetimewidget.R;
@@ -43,13 +44,11 @@ public class DateTimeCol extends ViewGroup {
 
     @Override public void addView(View child, int index, LayoutParams params) {
         super.addView(child, index, params);
-        Log.i("Col", "addView ---- " + ((DateTimeCell)child).getTextSize());
     }
 
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);    //To change body of overridden methods use File | Settings | File Templates.
-        Log.i("Col","Col:dispatchDraw --- ");
         for (int c=0; c<getChildCount();c++) {
             View child = getChildAt(c);
             canvas.drawLine(child.getLeft(),child.getBottom() - 1,child.getRight(), child.getBottom() - 1 ,divider);
@@ -61,7 +60,6 @@ public class DateTimeCol extends ViewGroup {
         final int totalWidth = MeasureSpec.getSize(widthMeasureSpec);
         final int totalHeight = MeasureSpec.getSize(heightMeasureSpec);
         Log.i("Col","onMeasure --- totalHeight:" + totalHeight );
-        //cellWidth = totalWidth / 7;
         cellWidth = totalWidth;
 
         Log.i("Col","onMeasure --- cellWidth:" + cellWidth );
@@ -85,7 +83,6 @@ public class DateTimeCol extends ViewGroup {
         int cellWidth = right - left;
         for (int c = 0, numChildren = getChildCount(); c < numChildren; c++) {
             final View child = getChildAt(c);
-            Log.i("Col","Col:onLayout --- " + cellHeight * c );
             child.layout(0, c * cellHeight , cellWidth, (c + 1) * cellHeight);
         }
     }

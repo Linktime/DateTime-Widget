@@ -1,19 +1,15 @@
 package cc.linktime.datetimewidget.sample;
 
 import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import cc.linktime.datetimewidget.ui.DateTimeCell;
 import cc.linktime.datetimewidget.ui.DateTimeGird;
-import cc.linktime.datetimewidget.ui.InfoPopup;
 import cc.linktime.datetimewidget.util.CellOnClickListener;
 
 import java.util.Calendar;
@@ -59,7 +55,7 @@ public class MyActivity extends Activity {
         layoutInflater = getLayoutInflater();
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        DateTimeGird view = (DateTimeGird)layoutInflater.inflate(R.layout.week,null);
+        DateTimeGird view = (DateTimeGird)layoutInflater.inflate(R.layout.week_gird,null);
         view.refreshContent();
         view.getCell(2,2).setEven(true);
         view.getCell(2,2).setText("上课");

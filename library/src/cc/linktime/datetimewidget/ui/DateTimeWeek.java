@@ -19,9 +19,9 @@ public class DateTimeWeek extends ViewGroup {
     private int width;
     private int height;
     private float startX;
-    private DateTimeGird before;
-    private DateTimeGird current;
-    private DateTimeGird next;
+    private DateTimeBody before;
+    private DateTimeBody current;
+    private DateTimeBody next;
     public DateTimeWeek(Context context) {
         super(context);    //To change body of overridden methods use File | Settings | File Templates.
     }
@@ -37,9 +37,9 @@ public class DateTimeWeek extends ViewGroup {
     @Override
     protected void onLayout(boolean changed, int left, int top, int right, int bottom) {
 
-        before = (DateTimeGird)getChildAt(0);
-        current = (DateTimeGird)getChildAt(1);
-        next = (DateTimeGird)getChildAt(2);
+        before = (DateTimeBody)getChildAt(0);
+        current = (DateTimeBody)getChildAt(1);
+        next = (DateTimeBody)getChildAt(2);
 
         Calendar beforeCal = current.getCal();
         beforeCal.add(Calendar.WEEK_OF_MONTH,-1);
@@ -115,7 +115,7 @@ public class DateTimeWeek extends ViewGroup {
     protected void scrollLeftGrid(){
         removeView(next);
         addView(next,0);
-        DateTimeGird temp;
+        DateTimeBody temp;
         temp = current;
         current = before;
         before = next;
@@ -127,7 +127,7 @@ public class DateTimeWeek extends ViewGroup {
     protected void scrollRightGrid(){
         removeView(before);
         addView(before);
-        DateTimeGird temp;
+        DateTimeBody temp;
         temp = current;
         current = next;
         next = before;
