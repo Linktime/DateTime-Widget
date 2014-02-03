@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <style name="DateTimeCell"
+            >
+        <item name="android:textColor">@color/cell_text_selector</item>
+        <item name="android:background">@drawable/cell_bg_selector</item>
+        <item name="android:textSize">@dimen/cell_text_size</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="DateTimeCellHead"
+            >
+        <item name="android:textColor">@color/cell_text_selector</item>
+        <item name="android:background">@drawable/cell_bg_selector</item>
+        <item name="android:textSize">@dimen/cell_head_size</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+
+    <style name="Pop"
+           >
+        <item name="android:windowEnterAnimation">@anim/popin</item>
+        <item name="android:windowExitAnimation">@anim/popout</item>
+   </style>
+
+    <style name="PopShape"
+           >
+        <item name="android:shape">@drawable/pop</item>
+           </style>
+</resources>

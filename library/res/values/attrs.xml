@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="cell">
+        <attr name="state_even" format="boolean"></attr>
+        <attr name="state_selectable" format="boolean"></attr>
+        <attr name="state_highlighted" format="boolean"></attr>
+        <attr name="state_rowhead" format="boolean"></attr>
+        <attr name="state_colhead" format="boolean"></attr>
+    </declare-styleable>
+</resources>

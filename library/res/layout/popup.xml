@@ -1,0 +1,17 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:background="@drawable/pop"
+    android:paddingTop="50dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    >
+    <TextView
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="噗啪噗啪"
+        android:textColor="#FFFFFF"
+        />
+    </RelativeLayout>
