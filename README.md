@@ -7,7 +7,7 @@ DateTime-Widget
 
 ### 创建方法
 * 动态生成:activity中调用 CalendarBuilder.builer(this),返回一个calendar view
-* 在xml中使用:<include layout="@layout/scroll_week"/>
+* 在xml中使用:````<include layout="@layout/scroll_week"/>````
 
 ### 设定事件
 ````
