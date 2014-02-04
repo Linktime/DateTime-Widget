@@ -10,40 +10,5 @@
         android:layout_height="wrap_content"
         android:text="My DIY Calendar!"
     />
-    <!--<LinearLayout-->
-        <!--android:layout_width="fill_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!-->-->
-        <!--<Button-->
-                <!--android:id="@+id/show"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:text="Show"-->
-                <!--/>-->
-    <!--</LinearLayout>-->
-    <!--<cc.linktime.datetimewidget.sample.TextTest-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="DB"-->
-            <!--/>-->
-    <!--<cc.linktime.datetimewidget.ui.DateTimeRow-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-        <!-->-->
-    <!--<cc.linktime.datetimewidget.ui.DateTimeCell-->
-            <!--android:id="@+id/cell1"-->
-            <!--android:layout_width="fill_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--style="@style/DateTimeCell"-->
-            <!--android:text="DB1"-->
-            <!--/>-->
-        <!--<cc.linktime.datetimewidget.ui.DateTimeCell-->
-                <!--android:id="@+id/cell2"-->
-                <!--android:layout_width="fill_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--style="@style/DateTimeCell"-->
-                <!--android:text="DB2"-->
-                <!--/>-->
-    <!--</cc.linktime.datetimewidget.ui.DateTimeRow>-->
 </LinearLayout>
 

@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import cc.linktime.datetimewidget.R;
+import cc.linktime.datetimewidget.util.EvenBundle;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -158,5 +160,10 @@ public class DateTimeWeek extends ViewGroup {
             else if (y>maxY) grid.scrollTo(0,maxY);
             else grid.scrollTo(0,y);
         }
+    }
+
+    public void setEvenList(int i,ArrayList<EvenBundle> evenList){
+        DateTimeBody body = (DateTimeBody)getChildAt(i);
+        ((DateTimeGrid)body.getChildAt(1)).setEvenList(evenList);
     }
 }

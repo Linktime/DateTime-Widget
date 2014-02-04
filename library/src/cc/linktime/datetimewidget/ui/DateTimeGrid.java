@@ -2,15 +2,16 @@ package cc.linktime.datetimewidget.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import cc.linktime.datetimewidget.R;
+import cc.linktime.datetimewidget.util.CellEven;
+import cc.linktime.datetimewidget.util.EvenBundle;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.TimeZone;
 
@@ -28,11 +29,11 @@ public class DateTimeGrid extends ViewGroup {
     private int colWidth;
     private Paint divider;
     private Calendar cal;
-    private float startY;
-    private float lastY;
+    private ArrayList<EvenBundle> evenList;
 
     public DateTimeGrid(Context context) {
         super(context);    //To change body of overridden methods use File | Settings | File Templates.
+        evenList = new ArrayList<EvenBundle>();
     }
 
     public DateTimeGrid(Context context, AttributeSet attrs) {
@@ -40,7 +41,7 @@ public class DateTimeGrid extends ViewGroup {
         divider = new Paint();
         divider.setColor(getResources().getColor(R.color.cell_divider));
         cal = Calendar.getInstance(TimeZone.getTimeZone("Asia/Shanghai"));
-        lastY = 0;
+        evenList = new ArrayList<EvenBundle>();
     }
 
     public DateTimeGrid(Context context, AttributeSet attrs, int defStyle) {
@@ -111,6 +112,19 @@ public class DateTimeGrid extends ViewGroup {
             rowhead.setText(String.valueOf(c));
         }
 
+        for(EvenBundle eb : evenList) {
+            Calendar ebCal = eb.getCal();
+            if (cal.get(Calendar.WEEK_OF_MONTH) == ebCal.get(Calendar.WEEK_OF_MONTH) &&
+                cal.get(Calendar.MONTH) == ebCal.get(Calendar.MONTH) &&
+                cal.get(Calendar.YEAR) == ebCal.get(Calendar.YEAR)
+                    ) {
+                CellEven ev = eb.getCellEven();
+                DateTimeCell cell = getCell(ev.dayOfWeek,ev.startHour);
+                cell.setText(ev.s);
+                cell.setEven(true);
+            }
+        }
+
     }
 
     public DateTimeCell getCell(int col,int row){
@@ -123,6 +137,10 @@ public class DateTimeGrid extends ViewGroup {
 
     public Calendar getCal(){
         return (Calendar)cal.clone();
+    }
+
+    public void setEvenList(ArrayList<EvenBundle> evenList) {
+        this.evenList = evenList;
     }
 
     public void setCalendar(Calendar cal){

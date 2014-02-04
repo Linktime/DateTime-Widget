@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
 import cc.linktime.datetimewidget.R;
+import cc.linktime.datetimewidget.util.EvenBundle;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 /**
@@ -17,7 +19,7 @@ import java.util.Calendar;
  * To change this template use File | Settings | File Templates.
  */
 public class DateTimeBody extends ViewGroup {
-    private DateTimeGrid gird;
+    private DateTimeGrid grid;
     private DateTimeRow colHead;
     private final int cellHeight = getResources().getDimensionPixelSize(R.dimen.cell_height);
     public DateTimeBody(Context context) {
@@ -40,8 +42,8 @@ public class DateTimeBody extends ViewGroup {
         colHead = (DateTimeRow)getChildAt(0);
         colHead.measure(width,cellHeight);
 
-        gird = (DateTimeGrid)getChildAt(1);
-        gird.measure(width,height - cellHeight);
+        grid = (DateTimeGrid)getChildAt(1);
+        grid.measure(width,height - cellHeight);
         setMeasuredDimension(width,height);
     }
 
@@ -49,12 +51,12 @@ public class DateTimeBody extends ViewGroup {
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
         //To change body of implemented methods use File | Settings | File Templates.
         colHead.layout(0,0,colHead.getMeasuredWidth(),cellHeight);
-        gird.layout(0, cellHeight, gird.getMeasuredWidth(), cellHeight + gird.getMeasuredHeight());
+        grid.layout(0, cellHeight, grid.getMeasuredWidth(), cellHeight + grid.getMeasuredHeight());
     }
 
     public void refreshContent(){
         colHead.refreshContent();
-        gird.refreshContent();
+        grid.refreshContent();
     }
 
     public Calendar getCal() {
@@ -62,7 +64,11 @@ public class DateTimeBody extends ViewGroup {
     }
 
     public void setCalendar(Calendar cal){
-        gird.setCalendar(cal);
+        grid.setCalendar(cal);
         colHead.setCalendar(cal);
+    }
+
+    public void setEvenList(ArrayList<EvenBundle> evenList){
+        grid.setEvenList(evenList);
     }
 }
