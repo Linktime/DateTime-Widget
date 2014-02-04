@@ -3,7 +3,7 @@ DateTime-Widget
 ## Demo
 目前界面如下图
 
-![Screenshot](https://github.com/Linktime/DateTime-Widget/blob/master/Screenshot.png)
+![Screenshot](./Screenshot.png)
 
 ### 创建方法
 * 动态生成:activity中调用 CalendarBuilder.builer(this),返回一个calendar view
