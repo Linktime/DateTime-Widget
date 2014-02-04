@@ -35,7 +35,7 @@ public class DateTimeCol extends ViewGroup {
         divider = new Paint();
         divider.setColor(R.color.cell_divider);
         cellHeight = getResources().getDimensionPixelSize(R.dimen.cell_height);
-        cellCount = 4;
+        cellCount = 24;
     }
 
     public DateTimeCol(Context context, AttributeSet attrs, int defStyle) {

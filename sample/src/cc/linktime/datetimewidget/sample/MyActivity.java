@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import cc.linktime.datetimewidget.ui.DateTimeCell;
-import cc.linktime.datetimewidget.ui.DateTimeGird;
+import cc.linktime.datetimewidget.ui.DateTimeGrid;
 import cc.linktime.datetimewidget.util.CellOnClickListener;
 
 import java.util.Calendar;
@@ -55,12 +55,12 @@ public class MyActivity extends Activity {
         layoutInflater = getLayoutInflater();
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
-        DateTimeGird view = (DateTimeGird)layoutInflater.inflate(R.layout.week_gird,null);
-        view.refreshContent();
-        view.getCell(2,2).setEven(true);
-        view.getCell(2,2).setText("上课");
+//        DateTimeGrid view = (DateTimeGrid)layoutInflater.inflate(R.layout.week_gird,null);
+//        view.refreshContent();
+//        view.getCell(2,2).setEven(true);
+//        view.getCell(2,2).setText("上课");
 
-        Log.i("sample","Grid child count:" + ((ViewGroup)view).getChildCount());
+//        Log.i("sample","Grid child count:" + ((ViewGroup)view).getChildCount());
 //        for (int c = 0;c<((ViewGroup)view).getChildCount();c++) {
 //            View row = ((ViewGroup)view).getChildAt(c);
 //            Log.i("sample","Grid child child count:" + ((ViewGroup)row).getChildCount());
@@ -77,7 +77,7 @@ public class MyActivity extends Activity {
 //        View row = layoutInflater.inflate(R.layout.week_row,null);
 //        ((ViewGroup) view).addView(row);
         CellOnClickListener.init(this);
-        linearLayout.addView(view);
+//        linearLayout.addView(view);
 
         dy_cell = new DateTimeCell(this);
         dy_cell.setText("DY_DB");

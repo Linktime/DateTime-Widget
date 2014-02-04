@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import cc.linktime.datetimewidget.R;
@@ -20,26 +21,29 @@ import java.util.TimeZone;
  * Time: 6:02 PM
  * To change this template use File | Settings | File Templates.
  */
-public class DateTimeGird extends ViewGroup {
-    private final int maxRowCount = 4;
+public class DateTimeGrid extends ViewGroup {
+    private final int maxRowCount = 24;
     private final int cellHeight =  getResources().getDimensionPixelSize(R.dimen.cell_height);
     private final int colHeight = cellHeight * maxRowCount;
     private int colWidth;
     private Paint divider;
     private Calendar cal;
+    private float startY;
+    private float lastY;
 
-    public DateTimeGird(Context context) {
+    public DateTimeGrid(Context context) {
         super(context);    //To change body of overridden methods use File | Settings | File Templates.
     }
 
-    public DateTimeGird(Context context, AttributeSet attrs) {
+    public DateTimeGrid(Context context, AttributeSet attrs) {
         super(context, attrs);    //To change body of overridden methods use File | Settings | File Templates.
         divider = new Paint();
         divider.setColor(getResources().getColor(R.color.cell_divider));
         cal = Calendar.getInstance(TimeZone.getTimeZone("Asia/Shanghai"));
+        lastY = 0;
     }
 
-    public DateTimeGird(Context context, AttributeSet attrs, int defStyle) {
+    public DateTimeGrid(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);    //To change body of overridden methods use File | Settings | File Templates.
     }
 
@@ -106,22 +110,6 @@ public class DateTimeGird extends ViewGroup {
             DateTimeCell rowhead = (DateTimeCell)rowCol.getChildAt(c);
             rowhead.setText(String.valueOf(c));
         }
-
-        /*
-        // init colhead
-        tempCal.add(Calendar.DAY_OF_WEEK,-todayOfWeek+1);   // set cal to the first day of week
-        DateTimeRow colHead = (DateTimeRow)getChildAt(0);
-        DateTimeCell rowColHead = (DateTimeCell)colHead.getChildAt(0);
-        rowColHead.setColHead(true);
-        rowColHead.setText(tempCal.get(Calendar.YEAR) + "年" + (tempCal.get(Calendar.MONTH)+1) + "月");
-
-        for (int c=0;c<colHead.getChildCount()-1;c++){
-            DateTimeCell child = (DateTimeCell)colHead.getChildAt(c+1);
-            child.setText(week[c] + " " + String.valueOf(tempCal.get(Calendar.DAY_OF_MONTH)));
-            tempCal.add(Calendar.DAY_OF_MONTH,1);
-
-        }
-        */
 
     }
 

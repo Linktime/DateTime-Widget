@@ -2,7 +2,8 @@ package cc.linktime.datetimewidget.ui;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.view.View;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.ViewGroup;
 import cc.linktime.datetimewidget.R;
 
@@ -16,7 +17,7 @@ import java.util.Calendar;
  * To change this template use File | Settings | File Templates.
  */
 public class DateTimeBody extends ViewGroup {
-    private DateTimeGird gird;
+    private DateTimeGrid gird;
     private DateTimeRow colHead;
     private final int cellHeight = getResources().getDimensionPixelSize(R.dimen.cell_height);
     public DateTimeBody(Context context) {
@@ -39,7 +40,7 @@ public class DateTimeBody extends ViewGroup {
         colHead = (DateTimeRow)getChildAt(0);
         colHead.measure(width,cellHeight);
 
-        gird = (DateTimeGird)getChildAt(1);
+        gird = (DateTimeGrid)getChildAt(1);
         gird.measure(width,height - cellHeight);
         setMeasuredDimension(width,height);
     }

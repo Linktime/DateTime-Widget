@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<cc.linktime.datetimewidget.ui.DateTimeGird
+<cc.linktime.datetimewidget.ui.DateTimeGrid
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -14,4 +14,4 @@
         <include layout="@layout/week_col"/>
         <include layout="@layout/week_col"/>
 
-</cc.linktime.datetimewidget.ui.DateTimeGird>
+</cc.linktime.datetimewidget.ui.DateTimeGrid>

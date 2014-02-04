@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ViewGroup;
+import cc.linktime.datetimewidget.R;
 
 import java.util.Calendar;
 
@@ -19,6 +20,8 @@ public class DateTimeWeek extends ViewGroup {
     private int width;
     private int height;
     private float startX;
+    private float startY;
+    private float lastY;
     private DateTimeBody before;
     private DateTimeBody current;
     private DateTimeBody next;
@@ -82,16 +85,19 @@ public class DateTimeWeek extends ViewGroup {
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
         boolean retVal =  super.dispatchTouchEvent(ev);    //To change body of overridden methods use File | Settings | File Templates.
-
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 startX = ev.getX();
+                startY = ev.getY();
                 Log.i("Week","Week:dispatchTouchEvent --- startAt:" + startX);
                 break;
             case MotionEvent.ACTION_MOVE:
                 scrollTo((int)(startX - ev.getX()),0);
+                scrollGrid((int)(startY - ev.getY() + lastY));
                 break;
             case MotionEvent.ACTION_UP:
+                lastY += startY - ev.getY();
+
                 if (ev.getX()-startX>(width/2)){
                     scrollTo(-width,0);
                     scrollLeftGrid();   // exchange the three grid
@@ -109,7 +115,15 @@ public class DateTimeWeek extends ViewGroup {
             default:
                 break;
         }
+
+//        DateTimeGrid gird = (DateTimeGrid)((DateTimeBody)getChildAt(1)).getChildAt(1);
+//        gird.dispatchTouchEvent(ev);
         return retVal;
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+        return super.onInterceptTouchEvent(ev);    //To change body of overridden methods use File | Settings | File Templates.
     }
 
     protected void scrollLeftGrid(){
@@ -134,5 +148,15 @@ public class DateTimeWeek extends ViewGroup {
         before = temp;
         next.getCal().add(Calendar.WEEK_OF_MONTH,3);
         next.refreshContent();
+    }
+
+    public void scrollGrid(int y){
+        for (int c=0;c<getChildCount();c++) {
+            DateTimeGrid grid = (DateTimeGrid)(((DateTimeBody)getChildAt(c)).getChildAt(1));
+            int maxY = grid.getHeight() - getHeight() + 2 * getResources().getDimensionPixelSize(R.dimen.cell_height);
+            if (y<0) grid.scrollTo(0,0);
+            else if (y>maxY) grid.scrollTo(0,maxY);
+            else grid.scrollTo(0,y);
+        }
     }
 }
