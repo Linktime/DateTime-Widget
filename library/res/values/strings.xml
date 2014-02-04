@@ -3,9 +3,9 @@
     <string name="app_name">library</string>
     <string name="sun">周日</string>
     <string name="sat">周六</string>
-    <string name="fri">周五</string>
-    <string name="thu">周五</string>
-    <string name="wed">周五</string>
-    <string name="tue">周五</string>
+    <string name="fri">周一</string>
+    <string name="thu">周二</string>
+    <string name="wed">周三</string>
+    <string name="tue">周四</string>
     <string name="mon">周五</string>
 </resources>
